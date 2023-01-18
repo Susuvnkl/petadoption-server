@@ -84,7 +84,11 @@ const updateStatesByCookie = async (req, res) => {
 
 const deleteCookie = async (req, res) => {
   try {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production" ? true : false,
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    });
     res.send(`deleted`);
   } catch (error) {
     console.log(error);
