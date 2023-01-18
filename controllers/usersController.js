@@ -51,7 +51,12 @@ const login = async (req, res) => {
     { expiresIn: "2h" }
   );
   console.log(token, `token`);
-  res.cookie("token", token, { maxAge: 7200000, httpOnly: true });
+  res.cookie("token", token, {
+    maxAge: 7200000,
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production" ? true : false,
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  });
   res.send({
     token: token,
     userName: `${user.firstName} ${user.lastName}`,
