@@ -23,9 +23,9 @@ const makeUrl = (req, res, next) => {
 };
 
 cloudinary.config({
-  cloud_name: "duzz1c7pf",
-  api_key: "618396249543628",
-  api_secret: "mKQUTg29UO0OXJtliDj27AssSk4",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
 
 const cloudStorage = new CloudinaryStorage({
