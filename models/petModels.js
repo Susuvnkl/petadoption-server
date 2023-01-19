@@ -3,7 +3,6 @@ const dbConnection = require("../knex/knex");
 const readAllPetsFromDBModel = async () => {
   try {
     const petsList = await dbConnection.from("pets");
-    // console.log(petsList);
     return petsList;
   } catch (err) {
     console.log(err);
@@ -128,9 +127,7 @@ const likedPetsListModal = async (userId) => {
 };
 
 const searchPetsModal = async (query) => {
-  // console.log(query);
   const { adoptionStatus, name, Weight, Height, type } = query;
-  //   query.searchInfo;
   console.log(adoptionStatus, name, Weight, Height, type);
   try {
     const res = await dbConnection.from("pets").where((qb) => {

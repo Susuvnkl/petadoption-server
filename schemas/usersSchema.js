@@ -1,7 +1,7 @@
 const signUpSchema = {
   type: "object",
   properties: {
-    firstName: { type: "string", maxLength: 5 },
+    firstName: { type: "string", maxLength: 100 },
     lastName: { type: "string" },
     email: {
       type: "string",
