@@ -52,7 +52,7 @@ const login = async (req, res) => {
   );
   console.log(token, `token`);
   res.cookie("token", token, {
-    maxAge: 7200000,
+    // maxAge: 7200000,
     httpOnly: true,
     secure: true,
     //  process.env.NODE_ENV === true,
