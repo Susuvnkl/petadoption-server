@@ -57,7 +57,7 @@ const login = async (req, res) => {
     secure: true,
     //  process.env.NODE_ENV === true,
     //  "production" ? true : false,
-    sameSite: "lax",
+    sameSite: "None",
     // process.env.NODE_ENV === "lax",
     // "production" ? "none" : "lax",
   });
