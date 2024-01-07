@@ -15,7 +15,12 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(cookieParser());
 app.use("/images", express.static("images"));
-app.use(cors({ origin: ["http://localhost:3000", "https://petadoption-client.vercel.app"], credentials: true }));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://petadoption-client.vercel.app"],
+    credentials: true,
+  })
+);
 app.use("/pets", petRoutes);
 app.use("/users", usersRoutes);
 
@@ -25,7 +30,7 @@ app.use("*", (req, res) => {
 
 app.use((err, req, res) => {
   console.log(err);
-  res.status(500).send("Somthing broke!");
+  res.status(500).send("Something broke!");
 });
 
 dbConnection.migrate.latest().then((migration) => {
